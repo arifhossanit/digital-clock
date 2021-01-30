@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="theme">
+        <div id="clock">12:00:00</div>
+    </div>
+    <script>
+        setInterval(()=>{
+            let Clock = document.querySelector('#clock');
+            let date = new Date ();
+            let hour = date.getHours();
+            let minutes = date.getMinutes();
+            let seconds = date.getSeconds();
+            let amPm = 'AM';
+
+            if(hour===0){
+                hour=12
+            };
+            if(hour>12){
+                hour = hour-12;
+                amPm = 'PM';
+            };
+            if(hour<10){
+                hour = '0'+hour;
+            };
+            if(minutes<10){
+                minutes = '0'+minutes;
+            }if(seconds<10){
+                seconds = '0'+seconds;
+            };
+            Clock.innerHTML = `${hour} : ${minutes} : ${seconds} ${amPm}` ;
+        })
+    </script>
+</body>
+</html>
